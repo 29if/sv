@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +16,26 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url('https://media.tenor.com/31kFE-dhExUAAAAe/zerotwo-zero2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .server-container {
-            background-color: #2F3136;
+            background-color: rgba(47, 49, 54, 0.85); /* Semi-transparent background */
             border-radius: 8px;
             padding: 20px;
             width: 400px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .server-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
 
         .server-name {
@@ -65,14 +76,32 @@
             background-color: #5B6EAE;
         }
     </style>
+    <script>
+        // Function to simulate the change in the number of users online
+        function updateOnlineUsers() {
+            const onlineElement = document.querySelector('.online');
+            let onlineCount = 50000;  // Initial count
+
+            setInterval(() => {
+                const change = Math.floor(Math.random() * 500) * (Math.random() > 0.5 ? 1 : -1);
+                onlineCount = Math.max(49000, Math.min(51000, onlineCount + change)); // Keeps count between 49,000 and 51,000
+                onlineElement.textContent = onlineCount.toLocaleString() + ' online';
+            }, 2000); // Update every 2 seconds
+        }
+
+        window.onload = updateOnlineUsers;
+    </script>
 </head>
 <body>
     <div class="server-container">
+        <!-- Server image -->
+        <img src="https://i.pinimg.com/736x/28/a2/24/28a2245db0207c5010f2be5679fb8975.jpg" alt="Server Icon" class="server-image">
+        
         <div class="server-name">AMV.mp4</div>
         <div class="members-info">
-            <span class="online">50,000 online</span> • <span class="total-members">900,000 membri</span>
+            <span class="online">50,000 online</span> • <span class="total-members">900,000 members</span>
         </div>
-        <a href="https://amv292004.weebly.com/" class="button">Join</a>
+        <a href="https://amv292004.weebly.com/" class="button">Home</a>
     </div>
 </body>
 </html>
